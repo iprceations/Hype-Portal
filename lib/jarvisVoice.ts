@@ -74,7 +74,9 @@ export function getJarvisVoice(isHi: boolean = false, text?: string): SpeechSynt
   // 1. Hindi Voice Search (Atul Kapoor J.A.R.V.I.S. / Vision)
   // STRICT REQUIREMENT: Exclude all female voices (Kalpana, Swara, etc.)
   if (isHi || hasDevanagari) {
-    const isFemaleVoice = (name: string) => {
+    const isFemaleVoice = (voice: SpeechSynthesisVoice | string) => {
+      const name = typeof voice === "string" ? voice : voice.name || "";
+      const lang = typeof voice === "string" ? "" : voice.lang || "";
       const n = name.toLowerCase();
       return (
         n.includes("female") ||
@@ -88,7 +90,7 @@ export function getJarvisVoice(isHi: boolean = false, text?: string): SpeechSynt
         n.includes("priya") ||
         n.includes("google हिन्दी") ||
         n.includes("google hindi") ||
-        (n.includes("google") && (v.lang === "hi-IN" || v.lang.startsWith("hi")))
+        (n.includes("google") && (lang === "hi-IN" || lang.startsWith("hi")))
       );
     };
 

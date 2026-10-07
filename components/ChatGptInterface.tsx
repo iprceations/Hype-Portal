@@ -1014,7 +1014,7 @@ export default function ChatGptInterface() {
     setVoiceTranscript("");
 
     // Prioritize authentic Hindi (Atul Kapoor) voice
-    const isCurrentHi = voiceLanguage === "hi" || isHi || language === "hi";
+    const isCurrentHi = (voiceLanguage as string) === "hi" || isHi;
     if (isCurrentHi && voiceLanguage !== "hi") {
       setVoiceLanguage("hi");
     }

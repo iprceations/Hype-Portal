@@ -32,6 +32,18 @@ interface SpicyChatbotProps {
 }
 
 const STARTER_PROMPTS: Record<ChatPersonality, string[]> = {
+  hype: [
+    "What trends are popping off right now?",
+    "Analyze the latest frontier AI developments",
+    "Give me high-voltage motivation to build",
+    "Break down modern web architecture",
+  ],
+  roast: [
+    "Roast my startup pitchdeck brutally",
+    "Roast my code style with zero filter",
+    "Why do tech influencers talk about morning routines?",
+    "Savage roast my career roadmap",
+  ],
   noty: [
     "Rate my most toxic red flag",
     "Give me a witty flirty pickup line",
@@ -68,6 +80,22 @@ const MODE_CONFIG: Record<
   ChatPersonality,
   { label: string; tag: string; color: string; border: string; bg: string; icon: React.ReactNode }
 > = {
+  hype: {
+    label: "Hype AI",
+    tag: "High Energy",
+    color: "text-[#3B82F6]",
+    border: "border-[#3B82F6]/40",
+    bg: "bg-[#3B82F6]/15",
+    icon: <Sparkles className="w-3.5 h-3.5" />,
+  },
+  roast: {
+    label: "Roast Mode",
+    tag: "Savage Heat",
+    color: "text-[#EF4444]",
+    border: "border-[#EF4444]/40",
+    bg: "bg-[#EF4444]/15",
+    icon: <Flame className="w-3.5 h-3.5" />,
+  },
   noty: {
     label: "Noty & Flirty",
     tag: "Spicy Vibe",
