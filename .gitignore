@@ -47,6 +47,7 @@ next-env.d.ts
 # scratch and experiment logs
 /scratch/
 *.log
+PUSH_TO_GITHUB.bat
 __pycache__/
 *.py[cod]
 
