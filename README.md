@@ -12,7 +12,7 @@
 
 <br />
 
-**Crafted with precision by [Pushkar Sharma](https://github.com/pushkar-sharma)**
+**Crafted with precision by [Pushkar Sharma](https://github.com/iprceations)**
 
 <p align="center">
   <a href="#-features">Key Features</a> •
@@ -132,8 +132,8 @@ Ensure you have installed:
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/hype-portal.git
-cd hype-portal
+git clone https://github.com/iprceations/Hype-Portal.git
+cd Hype-Portal
 ```
 
 #### 2. Install Dependencies
@@ -214,7 +214,7 @@ git add .
 git commit -m "feat: initial commit - Hype Portal with J.A.R.V.I.S. Voice Mode & Photo Studio"
 
 # 4. Link your remote repository
-git remote add origin https://github.com/<your-username>/hype-portal.git
+git remote add origin https://github.com/iprceations/Hype-Portal.git
 
 # 5. Push to GitHub
 git push -u origin main
@@ -222,7 +222,7 @@ git push -u origin main
 
 ### Deploy to Vercel in 1-Click
 The easiest way to deploy Hype Portal to production is using [Vercel](https://vercel.com/):
-1. Import your `hype-portal` repository into Vercel.
+1. Import your `Hype-Portal` repository into Vercel.
 2. In **Environment Variables**, add `GEMINI_API_KEY`.
 3. Click **Deploy**.
 
@@ -238,7 +238,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](./LICEN
 
 **Pushkar Sharma**
 - Project: **Hype Portal**
-- GitHub: [@pushkar-sharma](https://github.com/pushkar-sharma)
+- GitHub: [@iprceations](https://github.com/iprceations)
 
 <div align="center">
   <sub>Built with ❤️, curiosity, and high voltage by Pushkar Sharma.</sub>
