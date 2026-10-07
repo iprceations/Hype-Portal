@@ -1,0 +1,12 @@
+[
+  {
+    "ticketId": "HP-23404",
+    "timestamp": "2026-10-07T15:30:26.828Z",
+    "name": "Rahul Sharma",
+    "email": "rahul@example.com",
+    "category": "enterprise",
+    "priority": "high",
+    "message": "Inquiry regarding enterprise API rate limits.",
+    "targetEmail": "ask.hypeai@gmail.com"
+  }
+]

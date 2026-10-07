@@ -1,0 +1,100 @@
+<svg viewBox="0 0 320 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Brilliant Orange to Amber Gold Gradient -->
+    <linearGradient id="logoBrandGrad" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#F97316" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+
+    <!-- Telemetry Orbit Arc Gradient -->
+    <linearGradient id="logoOrbitGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#F97316" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sweeping Telemetry Orbit Arc behind/over right side -->
+  <path
+    d="M 175 38 C 195 10 245 4 285 10 C 305 14 316 28 314 46 C 311 62 298 76 278 86"
+    stroke="url(#logoOrbitGrad)"
+    stroke-width="2.2"
+    stroke-linecap="round"
+  />
+
+  <!-- Dual Orbital Planetary Nodes -->
+  <!-- Node 1: Brilliant Orange -->
+  <circle cx="248" cy="8" r="3.6" fill="#F97316" />
+  <circle cx="248" cy="8" r="1.6" fill="#FFFFFF" />
+
+  <!-- Node 2: Gold Amber -->
+  <circle cx="292" cy="14" r="3.6" fill="#F59E0B" />
+  <circle cx="292" cy="14" r="1.6" fill="#FFFFFF" />
+
+  <!-- ==================== HYPE WORDMARK ==================== -->
+  <!-- Letter H (x: 15..62, y: 16..50) -->
+  <path
+    d="M 15 16 H 27 V 30 H 49 V 16 H 61 V 50 H 49 V 37 H 27 V 50 H 15 Z"
+    fill="currentColor"
+  />
+
+  <!-- Letter Y (x: 70..116, y: 16..50) -->
+  <path
+    d="M 70 16 H 82 L 93 32 L 104 16 H 116 L 99.5 37 V 50 H 87 V 37 Z"
+    fill="currentColor"
+  />
+
+  <!-- Letter P (x: 125..172, y: 16..50) -->
+  <path
+    d="M 125 16 H 162 C 169 16 173 20 173 27 C 173 34 169 38 162 38 H 137 V 50 H 125 Z M 137 23.5 V 30.5 H 159 C 161.5 30.5 162.5 29 162.5 27 C 162.5 25 161.5 23.5 159 23.5 Z"
+    fill="currentColor"
+  />
+
+  <!-- Letter E (x: 181..235, y: 16..50) -->
+  <!-- Top Bar: Aerodynamic Forward-Slanted Orange Wing -->
+  <path
+    d="M 181 16 H 234 L 223 23.5 H 181 Z"
+    fill="#F97316"
+  />
+  <!-- Middle Bar: Shorter -->
+  <path
+    d="M 181 29.5 H 218 V 36.5 H 181 Z"
+    fill="currentColor"
+  />
+  <!-- Bottom Bar: Angled Baseline -->
+  <path
+    d="M 181 43 H 232 L 224 50 H 181 Z"
+    fill="currentColor"
+  />
+
+  <!-- ==================== PORTAL SUB-WORDMARK ==================== -->
+  <g fill="#F97316">
+    <!-- P -->
+    <path d="M 15 58 H 36 C 41 58 44 60.5 44 64.5 C 44 68.5 41 71 36 71 H 21.5 V 76 H 15 Z M 21.5 62 V 67 H 35 C 37 67 38 66 38 64.5 C 38 63 37 62 35 62 Z" />
+    <!-- O -->
+    <path d="M 54 58 H 78 C 82 58 84.5 60.5 84.5 67 C 84.5 73.5 82 76 78 76 H 54 C 50 76 47.5 73.5 47.5 67 C 47.5 60.5 50 58 54 58 Z M 55 62 C 53.5 62 53 63.5 53 67 C 53 70.5 53.5 72 55 72 H 77 C 78.5 72 79 70.5 79 67 C 79 63.5 78.5 62 77 62 Z" />
+    <!-- R -->
+    <path d="M 95 58 H 116 C 120.5 58 123 60 123 64 C 123 67 121 68.5 118 69.2 L 124 76 H 117 L 111.5 70 H 101.5 V 76 H 95 Z M 101.5 62 V 66.5 H 114.5 C 116.5 66.5 117.5 65.5 117.5 64.2 C 117.5 63 116.5 62 114.5 62 Z" />
+    <!-- T -->
+    <path d="M 134 58 H 163 V 62.5 H 151.5 V 76 H 145 V 62.5 H 134 Z" />
+    <!-- A -->
+    <path d="M 174 58 H 191 L 202 76 H 194.5 L 191.5 71 H 173.5 L 170.5 76 H 163 Z M 176 67 H 189 L 182.5 59.8 Z" />
+    <!-- L -->
+    <path d="M 212 58 H 218.5 V 71.5 H 238 V 76 H 212 Z" />
+  </g>
+
+  <!-- ==================== INTELLIGENCE MATRIX DIVIDER ==================== -->
+  <line x1="15" y1="83" x2="68" y2="83" stroke="#F97316" stroke-opacity="0.4" stroke-width="1.2" />
+  <text
+    x="142"
+    y="85.5"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, 'Inter', sans-serif"
+    font-size="6.8"
+    font-weight="600"
+    letter-spacing="2.8"
+    fill="#CBD5E1"
+    text-transform="uppercase"
+  >INTELLIGENCE MATRIX</text>
+  <line x1="216" y1="83" x2="269" y2="83" stroke="#F97316" stroke-opacity="0.4" stroke-width="1.2" />
+</svg>

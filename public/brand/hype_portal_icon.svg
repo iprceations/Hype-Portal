@@ -1,0 +1,40 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hpOrbitGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#F97316" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sweeping Telemetry Orbit Arc -->
+  <path
+    d="M 17 62 C 19 36 38 18 63 18 C 76 18 86 28 85 48 C 84 62 78 76 66 87"
+    stroke="url(#hpOrbitGrad)"
+    stroke-width="2.6"
+    stroke-linecap="round"
+  />
+
+  <!-- Dual Orbital Planetary Nodes -->
+  <!-- Node 1 (Apex Left) -->
+  <circle cx="63.5" cy="18" r="3.4" fill="#F97316" />
+  <circle cx="63.5" cy="18" r="1.6" fill="#FFFFFF" />
+
+  <!-- Node 2 (Apex Right) -->
+  <circle cx="78" cy="27" r="3.4" fill="#F59E0B" />
+  <circle cx="78" cy="27" r="1.6" fill="#FFFFFF" />
+
+  <!-- Letter H Geometry -->
+  <!-- Left Pillar -->
+  <path d="M 28 44 H 38 V 76 H 28 Z" fill="currentColor" />
+  <!-- Center Crossbar -->
+  <path d="M 38 54 H 54 V 63 H 38 Z" fill="currentColor" />
+  <!-- Bottom Right Pillar -->
+  <path d="M 54 54 H 64 V 76 H 54 Z" fill="currentColor" />
+
+  <!-- Top Right Dynamic Aerodynamic Orange Wing -->
+  <path
+    d="M 54 40 H 78.5 L 71 49 H 54 Z"
+    fill="#F97316"
+  />
+</svg>

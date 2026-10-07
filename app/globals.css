@@ -1,0 +1,805 @@
+@import "tailwindcss";
+
+:root {
+  /* MASTER COLOR TOKENS (Section 28) */
+  --primary-orange: #F97316;
+  --secondary-charcoal: #1E293B;
+  --accent-gold: #F59E0B;
+
+  --bg-light: #F8FAFC;
+  --surface-light: #FFFFFF;
+
+  --bg-dark: #0B1220;
+  --surface-dark: #1E293B;
+
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+
+  --text-light: #FFFFFF;
+  --text-muted-dark: #CBD5E1;
+
+  --border-light: #E2E8F0;
+  --border-dark: #334155;
+
+  /* Typography */
+  --font-hindi: var(--font-kalam), 'Kalam', cursive, sans-serif;
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-dm-mono), 'DM Mono', monospace;
+
+  /* Default Theme: Dark / Night Mode */
+  --background: #0B1220;
+  --foreground: #FFFFFF;
+  --surface: #111C2E;
+  --card-bg: #1E293B;
+  --card-nested: #0F172A;
+  --panel: #111C2E;
+  --panel-card: #1E293B;
+  --surface-hover: #24344D;
+  --muted: #94A3B8;
+  --muted-foreground: #94A3B8;
+  --border: #1E293B;
+  --border-strong: #334155;
+  --line: #1E293B;
+  --theme-accent: #F97316;
+  --theme-accent-alt: #F59E0B;
+}
+
+/* Explicit Dark Theme */
+html[data-theme="dark"],
+html.dark {
+  color-scheme: dark;
+  --background: #0B1220;
+  --foreground: #FFFFFF;
+  --surface: #111C2E;
+  --card-bg: #1E293B;
+  --card-nested: #0F172A;
+  --panel: #111C2E;
+  --panel-card: #1E293B;
+  --surface-hover: #24344D;
+  --muted: #94A3B8;
+  --muted-foreground: #94A3B8;
+  --border: #1E293B;
+  --border-strong: #334155;
+  --line: #1E293B;
+  --theme-accent: #F97316;
+  --theme-accent-alt: #F59E0B;
+}
+
+/* Explicit Light Theme (Warm Slate Foundation with High Surface Contrast) */
+html[data-theme="light"],
+html.light {
+  color-scheme: light;
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --surface: #FFFFFF;
+  --card-bg: #F1F5F9;
+  --card-nested: #E2E8F0;
+  --panel: #FFFFFF;
+  --panel-card: #F1F5F9;
+  --surface-hover: #E2E8F0;
+  --muted: #64748B;
+  --muted-foreground: #64748B;
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --line: #E2E8F0;
+  --theme-accent: #F97316;
+  --theme-accent-alt: #F59E0B;
+}
+
+@theme inline {
+  --color-primary-orange: #F97316;
+  --color-secondary-charcoal: #1E293B;
+  --color-accent-gold: #F59E0B;
+  --color-bg-light: #F8FAFC;
+  --color-surface-light: #FFFFFF;
+  --color-bg-dark: #0B1220;
+  --color-surface-dark: #1E293B;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Precise Hairline Grid Pattern for Dark Mode (#0B1220) */
+html[data-theme="dark"] body:before,
+html.dark body:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: radial-gradient(#1E293B 1.2px, transparent 1.2px);
+  background-size: 32px 32px;
+  background-color: #0B1220;
+  opacity: 0.8;
+}
+
+/* Precise Hairline Grid Pattern for Light Mode (#F8FAFC) */
+html[data-theme="light"] body:before,
+html.light body:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: radial-gradient(#E2E8F0 1.2px, transparent 1.2px);
+  background-size: 32px 32px;
+  background-color: #F8FAFC;
+  opacity: 0.7;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace !important;
+}
+
+/* Typography Hierarchy (Section 03) */
+h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.05;
+}
+
+h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ========================================================
+   MASTER BUTTON SYSTEM (Section 13)
+   ======================================================== */
+
+/* Primary Button:
+   - Background: #F97316 (Brilliant Orange)
+   - Text: #FFFFFF
+   - Hover: #EA580C
+   - Active: #C2410C
+   - Radius: 999px (full pill)
+   - Height: 44px–48px
+   - Padding: 20px–24px horizontal
+*/
+.btn-primary,
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 24px;
+  border-radius: 9999px;
+  background-color: #F97316 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover,
+.button-primary:hover {
+  background-color: #EA580C !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active,
+.button-primary:active {
+  background-color: #C2410C !important;
+  transform: translateY(0);
+}
+
+/* Premium Button:
+   - Background: #F59E0B (Gold / Amber)
+   - Text: #0F172A
+   - Hover: #F97316
+*/
+.btn-premium,
+.button-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 24px;
+  border-radius: 9999px;
+  background-color: #F59E0B !important;
+  color: #0F172A !important;
+  border: none !important;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-premium:hover,
+.button-premium:hover {
+  background-color: #F97316 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+/* Secondary Button:
+   - Light: Transparent, Border 1px solid #1E293B, Text #1E293B, Hover bg #1E293B, Hover text #FFFFFF
+   - Dark: Transparent, Border 1px solid #F59E0B, Text #FFFFFF, Hover bg #F59E0B, Hover text #0B1220
+*/
+.btn-secondary,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 9999px;
+  background-color: transparent !important;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html[data-theme="light"] .btn-secondary,
+html.light .btn-secondary {
+  border: 1.5px solid #1E293B !important;
+  color: #1E293B !important;
+}
+
+html[data-theme="light"] .btn-secondary:hover,
+html.light .btn-secondary:hover {
+  background-color: #1E293B !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+html[data-theme="dark"] .btn-secondary,
+html.dark .btn-secondary {
+  border: 1.5px solid #F59E0B !important;
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .btn-secondary:hover,
+html.dark .btn-secondary:hover {
+  background-color: #F59E0B !important;
+  color: #0B1220 !important;
+  transform: translateY(-1px);
+}
+
+/* ========================================================
+   FEATURE CARDS & PANELS (Section 09 & 18)
+   ======================================================== */
+
+.glass,
+.glass-panel,
+.matrix-card {
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Light Card:
+   - Background: #FFFFFF
+   - Border: #E2E8F0
+   - Heading: #0F172A
+   - Body: #64748B
+   - Subtle shadow
+*/
+html[data-theme="light"] .glass,
+html.light .glass,
+html[data-theme="light"] .glass-panel,
+html.light .glass-panel,
+html[data-theme="light"] .matrix-card,
+html.light .matrix-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  color: #0F172A;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+html[data-theme="light"] .glass:hover,
+html.light .glass:hover,
+html[data-theme="light"] .matrix-card:hover,
+html.light .matrix-card:hover {
+  transform: translateY(-4px);
+  border-color: #F97316;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Dark Card:
+   - Background: #1E293B
+   - Border: #334155
+   - Heading: #FFFFFF
+   - Body: #CBD5E1
+*/
+html[data-theme="dark"] .glass,
+html.dark .glass,
+html[data-theme="dark"] .glass-panel,
+html.dark .glass-panel,
+html[data-theme="dark"] .matrix-card,
+html.dark .matrix-card {
+  background-color: #1E293B;
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] .glass:hover,
+html.dark .glass:hover,
+html[data-theme="dark"] .matrix-card:hover,
+html.dark .matrix-card:hover {
+  transform: translateY(-4px);
+  border-color: #F97316;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Marquee for Ticker */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.mask-gradient-x {
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+}
+
+/* Kicker Eyebrow Tag (Section 03) */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+html[data-theme="light"] .kicker {
+  color: #1E293B;
+}
+
+html[data-theme="dark"] .kicker {
+  color: #CBD5E1;
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #F97316;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.15);
+  }
+}
+
+/* Subtle Film Grain Noise Texture */
+.noise,
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.012;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E");
+}
+
+/* ========================================================
+   LIGHT THEME ENFORCEMENT (#F8FAFC Light Mode)
+   ======================================================== */
+
+html[data-theme="light"] body,
+html.light body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+html[data-theme="light"] header,
+html.light header {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4 {
+  color: #0F172A;
+}
+
+/* Body / Secondary text in Light Mode */
+html[data-theme="light"] p {
+  color: #64748B;
+}
+
+/* ========================================================
+   DARK FOOTER OVERRIDES
+   Ensures headings, text, and inputs inside the permanent
+   dark footer remain bright, high-contrast (#FFFFFF / #CBD5E1)
+   ======================================================== */
+html[data-theme="light"] footer h1,
+html[data-theme="light"] footer h2,
+html[data-theme="light"] footer h3,
+html[data-theme="light"] footer h4,
+html[data-theme="light"] footer h5,
+html[data-theme="light"] footer h6 {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="light"] footer p {
+  color: #CBD5E1 !important;
+}
+
+/* Preserve dark input styling inside dark footer */
+html[data-theme="light"] footer input {
+  background-color: #1E293B !important;
+  color: #FFFFFF !important;
+  border-color: #334155 !important;
+}
+
+html[data-theme="light"] footer input::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Light Theme Typography High Contrast Guarantee */
+html[data-theme="light"] h1:not(footer h1),
+html.light h1:not(footer h1),
+html[data-theme="light"] h2:not(footer h2),
+html.light h2:not(footer h2),
+html[data-theme="light"] h3:not(footer h3),
+html.light h3:not(footer h3),
+html[data-theme="light"] h4:not(footer h4),
+html.light h4:not(footer h4) {
+  color: #0F172A;
+}
+
+html[data-theme="light"] p:not(footer p),
+html.light p:not(footer p) {
+  color: #475569;
+}
+
+/* Form Inputs in Light Mode (Section 15) */
+html[data-theme="light"] input:not(footer input):not([class*="bg-[#1E293B]"] input),
+html.light input:not(footer input):not([class*="bg-[#1E293B]"] input),
+html[data-theme="light"] textarea:not(footer textarea):not([class*="bg-[#1E293B]"] textarea),
+html.light textarea:not(footer textarea):not([class*="bg-[#1E293B]"] textarea),
+html[data-theme="light"] select,
+html.light select {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+html[data-theme="light"] input:not(footer input)::placeholder,
+html.light input:not(footer input)::placeholder,
+html[data-theme="light"] textarea:not(footer textarea)::placeholder,
+html.light textarea:not(footer textarea)::placeholder {
+  color: #64748B !important;
+}
+
+html[data-theme="light"] input:focus,
+html.light input:focus,
+html[data-theme="light"] textarea:focus,
+html.light textarea:focus {
+  border-color: #F97316 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2) !important;
+}
+
+/* ========================================================
+   DARK THEME ENFORCEMENT (#0B1220 Night Mode)
+   ======================================================== */
+
+html[data-theme="dark"] body,
+html.dark body {
+  background-color: #0B1220 !important;
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] header,
+html.dark header {
+  background-color: #0B1220 !important;
+  border-bottom: 1px solid #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4 {
+  color: #FFFFFF;
+}
+
+html[data-theme="dark"] p {
+  color: #CBD5E1;
+}
+
+/* Form Inputs in Dark Mode (Section 15) */
+html[data-theme="dark"] input,
+html.dark input,
+html[data-theme="dark"] textarea,
+html.dark textarea,
+html[data-theme="dark"] select,
+html.dark select {
+  background-color: #1E293B !important;
+  color: #FFFFFF !important;
+  border: 1px solid #334155 !important;
+}
+
+html[data-theme="dark"] input::placeholder,
+html.dark input::placeholder,
+html[data-theme="dark"] textarea::placeholder,
+html.dark textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="dark"] input:focus,
+html.dark input:focus,
+html[data-theme="dark"] textarea:focus,
+html.dark textarea:focus {
+  border-color: #F59E0B !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Global Selection */
+::selection {
+  background: rgba(249, 115, 22, 0.3);
+  color: #FFFFFF;
+}
+
+/* Outlined typography effect */
+.outlined {
+  -webkit-text-stroke: 1.5px currentColor;
+  color: transparent;
+}
+
+/* Animated Trash Dustbin Styles */
+.trash-btn {
+  position: relative;
+}
+.trash-btn .trash-lid {
+  transform-origin: 3px 6px;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.trash-btn:hover .trash-lid {
+  transform: rotate(-35deg) translateY(-2px);
+}
+.trash-btn:active {
+  animation: trashShake 0.25s ease-in-out;
+}
+
+@keyframes trashShake {
+  0%, 100% { transform: scale(0.95) rotate(0deg); }
+  25% { transform: scale(0.95) rotate(-6deg); }
+  75% { transform: scale(0.95) rotate(6deg); }
+}
+
+@keyframes undoCountdownProgress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+.animate-undo-progress {
+  animation: undoCountdownProgress 5s linear forwards;
+}
+
+/* Floating & Orbit Animations for Hype Emblem */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 3.2s ease-in-out infinite;
+}
+
+@keyframes spinSlowOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-orbit {
+  animation: spinSlowOrbit 14s linear infinite;
+}
+
+/* ========================================================
+   HIGH-TECH CUSTOM CURSOR STYLING (DESKTOP POINTERS)
+   ======================================================== */
+@media (pointer: fine) {
+  *,
+  *::before,
+  *::after,
+  html,
+  body,
+  a,
+  button,
+  [role="button"],
+  select,
+  .btn-primary,
+  .btn-secondary,
+  .btn-premium,
+  .button-primary,
+  .button-secondary,
+  .button-premium,
+  .cursor-pointer {
+    cursor: none !important;
+  }
+  /* Preserve text caret for direct text inputs */
+  input,
+  textarea,
+  [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
+/* Cursor Click Ripple & Micro-Flash Keyframes */
+@keyframes cursorRippleExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.95;
+    box-shadow: 0 0 0 rgba(249, 115, 22, 0.6);
+  }
+  60% {
+    opacity: 0.7;
+    box-shadow: 0 0 14px rgba(249, 115, 22, 0.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.7);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(249, 115, 22, 0);
+  }
+}
+
+@keyframes cursorClickFlash {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+
+.cursor-click-ripple {
+  animation: cursorRippleExpand 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cursor-click-flash {
+  animation: cursorClickFlash 0.25s ease-out forwards;
+}
+
+/* ========================================================
+   HINDI UNIFIED TYPOGRAPHY ENGINE (SINGLE FONT: KALAM)
+   When user switches to Hindi, the entire website uses
+   ONLY ONE font: Kalam (https://fonts.google.com/specimen/Kalam).
+   All text, numbers (1M+, 500+, 200+), stats, headings,
+   buttons, badges, inputs and labels use Kalam exclusively.
+   ======================================================== */
+.font-hindi {
+  font-family: var(--font-kalam), 'Kalam', cursive, sans-serif !important;
+}
+
+html[lang="hi"],
+html[lang="hi"] body,
+html[lang="hi"] h1,
+html[lang="hi"] h2,
+html[lang="hi"] h3,
+html[lang="hi"] h4,
+html[lang="hi"] h5,
+html[lang="hi"] h6,
+html[lang="hi"] p,
+html[lang="hi"] span,
+html[lang="hi"] a,
+html[lang="hi"] button,
+html[lang="hi"] input,
+html[lang="hi"] textarea,
+html[lang="hi"] select,
+html[lang="hi"] label,
+html[lang="hi"] div,
+html[lang="hi"] .font-numeric,
+html[lang="hi"] .stat-number,
+html[lang="hi"] [data-numeric="true"],
+html[lang="hi"] .font-sans,
+html[lang="hi"] .font-mono {
+  font-family: var(--font-kalam), 'Kalam', cursive, sans-serif !important;
+}
+
+html[lang="hi"] {
+  --font-sans: var(--font-kalam), 'Kalam', cursive, sans-serif;
+  --font-mono: var(--font-kalam), 'Kalam', cursive, sans-serif;
+  --font-hindi: var(--font-kalam), 'Kalam', cursive, sans-serif;
+}
+
+/* English-only numeric styling when language is NOT Hindi */
+html:not([lang="hi"]) .font-numeric,
+html:not([lang="hi"]) .stat-number,
+html:not([lang="hi"]) [data-numeric="true"] {
+  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* ========================================================
+   GLOBAL HIGH-CONTRAST SELECTION SYSTEM
+   Solid #F97316 Electric Orange selection background
+   with pure white text. Eliminates muddy alpha blending.
+   ======================================================== */
+::selection {
+  background-color: #F97316 !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+::-moz-selection {
+  background-color: #F97316 !important;
+  color: #FFFFFF !important;
+}

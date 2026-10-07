@@ -1,0 +1,10 @@
+# HYPE PORTAL — Security Disclosure & Vulnerability Reporting Policy
+# RFC 9116 (https://www.rfc-editor.org/rfc/rfc9116)
+
+Contact: mailto:ask.hypeai@gmail.com
+Expires: 2028-12-31T23:59:59.000Z
+Preferred-Languages: en, hi
+Policy: https://hype-portal.vercel.app/security
+Acknowledgments: https://hype-portal.vercel.app/security
+Canonical: https://hype-portal.vercel.app/.well-known/security.txt
+Encryption: https://hype-portal.vercel.app/security
